@@ -8,15 +8,15 @@ function App() {
     <div className="app-container">
       <header className="header">
         <div className="logo-section">
-          <h1>Iran Times</h1>
-          <p className="subtitle">Breaking News & Independent Analysis</p>
+          <h1>Iran War Report</h1>
+          <p className="subtitle">Real-time Updates from the 2026 Conflict</p>
         </div>
         <nav className="nav">
-          <a href="#" onClick={() => setSelectedNews(null)}>Home</a>
-          <a href="#">Politics</a>
-          <a href="#">War</a>
-          <a href="#">Economy</a>
-          <a href="#">Opinion</a>
+          <a href="#" onClick={() => setSelectedNews(null)}>Frontline</a>
+          <a href="#">Strategy</a>
+          <a href="#">Operations</a>
+          <a href="#">Global Impact</a>
+          <a href="#">Analysis</a>
         </nav>
       </header>
 
@@ -24,8 +24,8 @@ function App() {
         {!selectedNews ? (
           <div className="news-grid">
             <div className="breaking-news">
-              <span className="breaking-tag">Breaking News</span>
-              <p>March 4, 2026: Regional conflict enters fifth day. U.S. and Israeli strikes continue on Tehran.</p>
+              <span className="breaking-tag">URGENT</span>
+              <p>March 4, 2026: IRGC confirmed closure of Strait of Hormuz. US Central Command on highest alert.</p>
             </div>
             {newsItems.map((item) => (
               <article key={item.id} className="news-card" onClick={() => setSelectedNews(item)}>
@@ -58,8 +58,8 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>&copy; 2026 Iran Times News. All rights reserved.</p>
-        <p className="disclaimer">Independent news coverage from the region.</p>
+        <p>&copy; 2026 Iran War Report. Military-grade reporting from the conflict zone.</p>
+        <p className="disclaimer">Independent tactical and strategic analysis.</p>
       </footer>
     </div>
   );
