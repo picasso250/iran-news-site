@@ -1,8 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { newsItems } from './data';
 
 function App() {
   const [selectedNews, setSelectedNews] = useState(null);
+  const [currentCategory, setCurrentCategory] = useState('全部');
+
+  const categories = ['全部', '前线', '战略', '行动', '全球影响', '深度分析'];
+
+  const filteredNews = useMemo(() => {
+    if (currentCategory === '全部') return newsItems;
+    return newsItems.filter(item => item.category === currentCategory);
+  }, [currentCategory]);
+
+  const handleCategoryClick = (category) => {
+    setCurrentCategory(category);
+    setSelectedNews(null);
+  };
 
   return (
     <div className="app-container">
@@ -12,11 +25,15 @@ function App() {
           <p className="subtitle">2026年冲突实时更新</p>
         </div>
         <nav className="nav">
-          <a href="#" onClick={() => setSelectedNews(null)}>前线</a>
-          <a href="#">战略</a>
-          <a href="#">行动</a>
-          <a href="#">全球影响</a>
-          <a href="#">深度分析</a>
+          {categories.map(cat => (
+            <button 
+              key={cat} 
+              className={`nav-btn ${currentCategory === cat ? 'active' : ''}`}
+              onClick={() => handleCategoryClick(cat)}
+            >
+              {cat}
+            </button>
+          ))}
         </nav>
       </header>
 
@@ -25,24 +42,29 @@ function App() {
           <div className="news-grid">
             <div className="breaking-news">
               <span className="breaking-tag">紧急</span>
-              <p>2026年3月4日：伊朗伊斯兰革命卫队确认关闭霍尔木兹海峡。美国中央司令部进入最高戒备状态。</p>
+              <p>2026年3月4日：伊朗伊斯兰革命卫队确认关闭霍尔木兹海峡。多国联合部队发起“史诗狂怒行动”。</p>
             </div>
-            {newsItems.map((item) => (
-              <article key={item.id} className="news-card" onClick={() => setSelectedNews(item)}>
-                <img src={item.image} alt={item.title} className="news-image" />
-                <div className="news-content">
-                  <span className="category">{item.category}</span>
-                  <h2 className="title">{item.title}</h2>
-                  <p className="summary">{item.summary}</p>
-                  <span className="date">{item.date}</span>
-                </div>
-              </article>
-            ))}
+            <div className="category-title-container">
+               <h2 className="current-category-title">{currentCategory}</h2>
+            </div>
+            {filteredNews.length > 0 ? (
+              filteredNews.map((item) => (
+                <article key={item.id} className="news-card no-image" onClick={() => setSelectedNews(item)}>
+                  <div className="news-content">
+                    <span className="category">{item.category}</span>
+                    <h2 className="title">{item.title}</h2>
+                    <p className="summary">{item.summary}</p>
+                    <span className="date">{item.date}</span>
+                  </div>
+                </article>
+              ))
+            ) : (
+              <p className="no-news">该分类下暂无最新情报。</p>
+            )}
           </div>
         ) : (
           <article className="full-article">
-            <button className="back-btn" onClick={() => setSelectedNews(null)}>← 返回首页</button>
-            <img src={selectedNews.image} alt={selectedNews.title} className="hero-image" />
+            <button className="back-btn" onClick={() => setSelectedNews(null)}>← 返回</button>
             <div className="article-header">
               <span className="category">{selectedNews.category}</span>
               <h1>{selectedNews.title}</h1>
@@ -50,16 +72,22 @@ function App() {
             </div>
             <div className="article-body">
               <p className="lead">{selectedNews.summary}</p>
-              <p>{selectedNews.content}</p>
-              <p>该地区各方消息仍在不断传回。由于局势迅速变化，当地政府敦促平民留在避难所中。</p>
+              <div className="article-text">
+                {selectedNews.content.split('\n').map((para, index) => (
+                  <p key={index}>{para}</p>
+                ))}
+              </div>
+              <div className="field-report-tag">
+                <p>注：本报道基于前线实时情报，内容可能随局势发展而更新。</p>
+              </div>
             </div>
           </article>
         )}
       </main>
 
       <footer className="footer">
-        <p>&copy; 2026 伊朗战争简报。来自冲突前线的军事情报级报道。</p>
-        <p className="disclaimer">独立战术与战略分析。</p>
+        <p>&copy; 2026 伊朗战争简报。独立军事与战略情报分析中心。</p>
+        <p className="disclaimer">数据源：卫星遥感、开源情报及战地特约通讯员。</p>
       </footer>
     </div>
   );
