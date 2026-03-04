@@ -1,14 +1,15 @@
 import React, { useState, useMemo } from 'react';
-import { newsItems } from './data';
+import { newsItems, timelineEvents } from './data';
 
 function App() {
   const [selectedNews, setSelectedNews] = useState(null);
   const [currentCategory, setCurrentCategory] = useState('全部');
 
-  const categories = ['全部', '前线', '战略', '行动', '全球影响', '深度分析'];
+  const categories = ['全部', '前线', '战略', '行动', '全球影响', '深度分析', '时间轴'];
 
   const filteredNews = useMemo(() => {
     if (currentCategory === '全部') return newsItems;
+    if (currentCategory === '时间轴') return [];
     return newsItems.filter(item => item.category === currentCategory);
   }, [currentCategory]);
 
@@ -47,19 +48,36 @@ function App() {
             <div className="category-title-container">
                <h2 className="current-category-title">{currentCategory}</h2>
             </div>
-            {filteredNews.length > 0 ? (
-              filteredNews.map((item) => (
-                <article key={item.id} className="news-card no-image" onClick={() => setSelectedNews(item)}>
-                  <div className="news-content">
-                    <span className="category">{item.category}</span>
-                    <h2 className="title">{item.title}</h2>
-                    <p className="summary">{item.summary}</p>
-                    <span className="date">{item.date}</span>
+            {currentCategory === '时间轴' ? (
+              <div className="timeline-container">
+                {timelineEvents.map((event, index) => (
+                  <div key={index} className="timeline-item">
+                    <div className="timeline-marker"></div>
+                    <div className="timeline-content">
+                      <span className="timeline-time">{event.time}</span>
+                      <h3 className="timeline-event">{event.event}</h3>
+                      <span className={`impact-badge impact-${event.impact === '极高' ? 'critical' : event.impact === '高' ? 'high' : 'medium'}`}>
+                        影响评估: {event.impact}
+                      </span>
+                    </div>
                   </div>
-                </article>
-              ))
+                ))}
+              </div>
             ) : (
-              <p className="no-news">该分类下暂无最新情报。</p>
+              filteredNews.length > 0 ? (
+                filteredNews.map((item) => (
+                  <article key={item.id} className="news-card no-image" onClick={() => setSelectedNews(item)}>
+                    <div className="news-content">
+                      <span className="category">{item.category}</span>
+                      <h2 className="title">{item.title}</h2>
+                      <p className="summary">{item.summary}</p>
+                      <span className="date">{item.date}</span>
+                    </div>
+                  </article>
+                ))
+              ) : (
+                <p className="no-news">该分类下暂无最新情报。</p>
+              )
             )}
           </div>
         ) : (
