@@ -8,15 +8,15 @@ function App() {
     <div className="app-container">
       <header className="header">
         <div className="logo-section">
-          <h1>Iran War Report</h1>
-          <p className="subtitle">Real-time Updates from the 2026 Conflict</p>
+          <h1>伊朗战争简报</h1>
+          <p className="subtitle">2026年冲突实时更新</p>
         </div>
         <nav className="nav">
-          <a href="#" onClick={() => setSelectedNews(null)}>Frontline</a>
-          <a href="#">Strategy</a>
-          <a href="#">Operations</a>
-          <a href="#">Global Impact</a>
-          <a href="#">Analysis</a>
+          <a href="#" onClick={() => setSelectedNews(null)}>前线</a>
+          <a href="#">战略</a>
+          <a href="#">行动</a>
+          <a href="#">全球影响</a>
+          <a href="#">深度分析</a>
         </nav>
       </header>
 
@@ -24,8 +24,8 @@ function App() {
         {!selectedNews ? (
           <div className="news-grid">
             <div className="breaking-news">
-              <span className="breaking-tag">URGENT</span>
-              <p>March 4, 2026: IRGC confirmed closure of Strait of Hormuz. US Central Command on highest alert.</p>
+              <span className="breaking-tag">紧急</span>
+              <p>2026年3月4日：伊朗伊斯兰革命卫队确认关闭霍尔木兹海峡。美国中央司令部进入最高戒备状态。</p>
             </div>
             {newsItems.map((item) => (
               <article key={item.id} className="news-card" onClick={() => setSelectedNews(item)}>
@@ -41,25 +41,25 @@ function App() {
           </div>
         ) : (
           <article className="full-article">
-            <button className="back-btn" onClick={() => setSelectedNews(null)}>← Back to Home</button>
+            <button className="back-btn" onClick={() => setSelectedNews(null)}>← 返回首页</button>
             <img src={selectedNews.image} alt={selectedNews.title} className="hero-image" />
             <div className="article-header">
               <span className="category">{selectedNews.category}</span>
               <h1>{selectedNews.title}</h1>
-              <p className="date">Published on {selectedNews.date}</p>
+              <p className="date">发布于 {selectedNews.date}</p>
             </div>
             <div className="article-body">
               <p className="lead">{selectedNews.summary}</p>
               <p>{selectedNews.content}</p>
-              <p>Reports are still coming in from various sources across the region. Local authorities have urged civilians to remain in shelters as the situation evolves rapidly.</p>
+              <p>该地区各方消息仍在不断传回。由于局势迅速变化，当地政府敦促平民留在避难所中。</p>
             </div>
           </article>
         )}
       </main>
 
       <footer className="footer">
-        <p>&copy; 2026 Iran War Report. Military-grade reporting from the conflict zone.</p>
-        <p className="disclaimer">Independent tactical and strategic analysis.</p>
+        <p>&copy; 2026 伊朗战争简报。来自冲突前线的军事情报级报道。</p>
+        <p className="disclaimer">独立战术与战略分析。</p>
       </footer>
     </div>
   );

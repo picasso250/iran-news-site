@@ -1,38 +1,38 @@
 export const newsItems = [
   {
     id: 1,
-    title: "US and Israel Confirm Death of Supreme Leader in 'Operation Epic Fury'",
-    category: "Breaking",
+    title: "美国和以色列确认最高领袖在‘史诗狂怒行动’中丧生",
+    category: "突发",
     date: "2026-03-04",
-    summary: "Joint military officials have confirmed the assassination of Ayatollah Ali Khamenei during a high-precision strike on Tehran leadership compounds.",
-    content: "In what is being described as the most significant decapitation strike in modern history, 'Operation Epic Fury' has successfully targeted the highest echelons of the Iranian government. The strike, a joint effort between the U.S. Air Force and the Israeli Defense Forces, hit several bunker complexes in northern Tehran. The Assembly of Experts is reportedly in a state of chaos, with no clear successor yet named, though Mojtaba Khamenei remains a point of intense speculation.",
+    summary: "联合军方官员确认，在对德黑兰领导层大院的多次高精度打击中，阿亚图拉·阿里·哈梅内伊遭到暗杀。",
+    content: "在这场被称为现代史上最重要的‘斩首’行动中，‘史诗狂怒行动’成功锁定了伊朗政府的最高层。这次由美国空军和以色列国防军联合发起的打击，命中了德黑兰北部的多个地下堡垒群。据报道，专家会议正处于混乱状态，尚未指派明确的继任者，尽管莫杰塔巴·哈梅内伊仍是外界激烈猜测的焦点。",
     image: "https://images.unsplash.com/photo-1523971932490-642646d2341d?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: 2,
-    title: "IRGC Declares Strait of Hormuz 'Fully Closed' to International Shipping",
-    category: "Economy",
+    title: "伊朗伊斯兰革命卫队宣布霍尔木兹海峡对国际航运‘完全关闭’",
+    category: "经济",
     date: "2026-03-04",
-    summary: "Oil prices skyrocket as the Revolutionary Guard deploys naval mines and anti-ship missiles across the vital waterway.",
-    content: "The Islamic Revolutionary Guard Corps (IRGC) announced this morning that the Strait of Hormuz is now a 'restricted combat zone.' Any vessel attempting passage will be targeted. Global oil markets have reacted with panic, with Brent crude hitting record highs. The U.S. Navy's 5th Fleet has stated it is preparing 'freedom of navigation' operations, signaling a potential direct naval confrontation.",
+    summary: "随着革命卫队在这一重要水道布设水雷和反舰导弹，油价一路飙升。",
+    content: "伊朗伊斯兰革命卫队（IRGC）今天上午宣布，霍尔木兹海峡现已成为‘受限作战区域’。任何试图通过的船只都将成为攻击目标。全球石油市场对此反应恐慌，布伦特原油价格创下历史新高。美国海军第五舰队表示正在筹备‘航行自由’行动，这预示着可能发生直接的海上对抗。",
     image: "https://images.unsplash.com/photo-1611270629569-8b357cb88da9?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: 3,
-    title: "Ground Offensive: Israeli Troops Cross into Southern Lebanon",
-    category: "War",
+    title: "地面进攻：以色列军队进入黎巴嫩南部",
+    category: "战争",
     date: "2026-03-04",
-    summary: "The conflict widens as the IDF begins a multi-pronged ground operation to push Hezbollah forces north of the Litani River.",
-    content: "As the air campaign over Iran continues, the war has expanded to its borders. Israeli tank columns were seen crossing the Blue Line under heavy artillery cover. Hezbollah has responded with massive rocket barrages into northern and central Israel, including Tel Aviv. The UN Security Council is scheduled for an emergency session later today, though a veto from the U.S. is expected.",
+    summary: "随着以色列国防军开始多线地面行动，试图将真主党武装推向利塔尼河以北，冲突进一步扩大。",
+    content: "随着针对伊朗的空袭持续进行，战争已扩展到其边界。在重型火炮的掩护下，人们看到以色列坦克纵队穿过了‘蓝线’。真主党则向以色列北部和中部（包括特拉维夫）发射了大规模火箭弹作为回击。联合国安理会计划于今天晚些时候举行紧急会议，但预计美国将行使否决权。",
     image: "https://images.unsplash.com/photo-1469122312224-c5846569efe1?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: 4,
-    title: "Operation Honest Promise 4: Iran Launches Hundreds of Drones at US Bases",
-    category: "War",
+    title: "‘诚实承诺4号’行动：伊朗向美军基地发射数百架无人机",
+    category: "战争",
     date: "2026-03-04",
-    summary: "Retaliatory strikes target U.S. military installations across the GCC states, including Al-Udeid and Camp Arifjan.",
-    content: "Iran has launched its largest ever drone and missile offensive, dubbed 'Honest Promise 4.' Reports indicate that infrastructure in Kuwait, the UAE, and Saudi Arabia has been hit. Unlike previous strikes, the IRGC appears to be targeting civilian infrastructure used by U.S. forces, including major ports and regional airports. Air defense systems across the Gulf are currently engaged at maximum capacity.",
+    summary: "报复性打击瞄准了海合会国家内的美国军事设施，包括乌代德空军基地和阿里夫詹营地。",
+    content: "伊朗发起了有史以来规模最大的无人机和导弹攻势，代号为‘诚实承诺4号’。报告显示，科威特、阿联酋和沙特阿拉伯的基础设施遭到打击。与以往不同的是，革命卫队似乎在针对美军使用的民用基础设施，包括主要港口和地区机场。整个海湾地区的防空系统目前正处于超负荷运行状态。",
     image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800&auto=format&fit=crop"
   }
 ];
